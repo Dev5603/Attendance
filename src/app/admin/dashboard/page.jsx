@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import axios from "axios"
 
@@ -9,8 +10,10 @@ import styles from './dashboard.module.css'
 
 const Dashboard = () => {
   const [ staffs, setStaffs ] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const handleClick = async ( staffEmail ) => {
+    setLoading(true)
 
     try {
       const response = await axios.delete('/api/staff/delete', {
@@ -26,11 +29,15 @@ const Dashboard = () => {
       }
     } catch (error) {
       toast.error(error.response?.data?.message)
+    } finally {
+      setLoading(false)
     }
   }
 
   useEffect(() => {
     const fetchStaff = async () => {
+      setLoading(true)
+
       try {
         const response = await axios.get(`/api/staff/get`)
         
@@ -39,6 +46,8 @@ const Dashboard = () => {
         }
       } catch (error) {
         toast.error(error.response.data.message)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -56,7 +65,9 @@ const Dashboard = () => {
                   <h2>{staff.name}</h2>
                   <p>{staff.email}</p>
                   <div>
-                    <button className={styles.delete} onClick={() => handleClick(staff.email)}>Delete</button>
+                    <button className={styles.delete} disabled={loading} onClick={() => handleClick(staff.email)}>
+                      {loading ? 'Deleting': 'Delete'}
+                    </button>
                   </div>
                 </div>
               ))}

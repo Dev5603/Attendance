@@ -15,6 +15,7 @@ const AddStaff = () => {
     email: '',
     password: ''
   })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -27,6 +28,7 @@ const AddStaff = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
       const response = await axios.post(`/api/staff/add`, {
@@ -47,6 +49,8 @@ const AddStaff = () => {
       }
     } catch (error) {
         toast.error(error.response.data.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -68,7 +72,9 @@ const AddStaff = () => {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" id='password' onChange={handleChange} value={staffData.password} required autoComplete='off' />
 
-              <button type='submit'>Add Staff</button>
+              <button type='submit' disabled={loading}>
+                {loading ? 'Adding Staff': 'Add Staff'}
+              </button>
             </form>
           </div>
         </div>

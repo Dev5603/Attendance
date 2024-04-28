@@ -20,6 +20,7 @@ const Register = () => {
     latitude: null,
     longitude: null
   })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -32,6 +33,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
         const response = await axios.post(`/api/auth/register`, {
@@ -46,6 +48,8 @@ const Register = () => {
         }
     } catch (error) {
         toast.error(error.response.data.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -87,7 +91,9 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id='password' onChange={handleChange} required autoComplete='off' />
 
-            <button type='submit'>Create Account</button>
+            <button type='submit' disabled={loading}>
+              {loading ? 'Creating Account': 'Create Account'}
+            </button>
           </form>
           </div>
       </div>

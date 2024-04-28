@@ -28,6 +28,7 @@ const Dashboard = () => {
   const [inButtonVisible, setInButtonVisible] = useState(true);
   const [outButtonVisible, setOutButtonVisible] = useState(false);
   const [buttonStatus, setButtonStatus] = useState('disabled')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -104,6 +105,7 @@ const Dashboard = () => {
   }, [location, registeredLocation])
 
   const handleCheckIn = async () => {
+    setLoading(true)
     try {
       const response = await axios.post(`/api/attendance/markin`, {
         staffID: userData.email,
@@ -121,10 +123,13 @@ const Dashboard = () => {
       }
     } catch (error) {
       toast.error('Failed to check in');
+    } finally {
+      setLoading(false)
     }
   }
 
   const handleCheckOut = async () => {
+    setLoading(true)
     try {
       const response = await axios.post(`/api/attendance/markout`, {
         staffID: userData.email,
@@ -142,6 +147,8 @@ const Dashboard = () => {
       }
     } catch (error) {
       toast.error('Failed to check out')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -156,12 +163,12 @@ const Dashboard = () => {
           )}
           <button onClick={handleCheckIn} disabled={buttonStatus !== 'enabled' || !inButtonVisible}>
             <i><FaDoorOpen /></i>
-            Check In
+            {loading ? 'Checking In': 'Check In'}
             <span>{currentTime}</span>
           </button>
           <button onClick={handleCheckOut} disabled={!outButtonVisible}>
             <i><CiLogout /></i>
-            Check Out
+            {loading ? 'Checking Out': 'Check Out'}
             <span>{currentTime}</span>
           </button>
         </div>

@@ -15,6 +15,7 @@ const Login = () => {
     email: '',
     password: ''
   })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -27,6 +28,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     try {
         const response = await axios.post(`/api/auth/login`, {
@@ -42,6 +44,8 @@ const Login = () => {
         }
     } catch (error) {
         toast.error(error.response.data.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -63,7 +67,9 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" id='password' onChange={handleChange} required autoComplete='off' />
 
-              <button type='submit'>Login</button>
+              <button type='submit' disabled={loading}>
+                {loading ? 'Logging In': 'Log In'}
+              </button>
             </form>
             </div>
         </div>

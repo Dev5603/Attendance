@@ -19,7 +19,7 @@
 
     padding: 5rem 3rem;
 
-    background-color: hsl(0 100% 100% / 0.3);
+    background-color: var(--clr-primary-200);
 }
 
 .dashboard button:is(:focus, :hover) {
@@ -27,7 +27,7 @@
 }
 
 .dashboard button i {
-    font-size: 5rem;
+    display: none;
 }
 
 .dashboard button span {
@@ -39,7 +39,7 @@
 }
 
 .dashboard button:disabled {
-    display: none;
+    background-color: gray;
 }
 
 .dashboard .next {
@@ -55,11 +55,20 @@
 
 @media only screen and (width < 45em) {
 
+    .dashboard {
+        flex-direction: column;
+    }
+
     .dashboard button {
-        width: 100%;
+        width: 75%;
+        font-size: 1rem;
 
         padding: 5rem 0;
         margin: 1rem;
+    }
+
+    .dashboard button i {
+        display: none;
     }
 
 }
