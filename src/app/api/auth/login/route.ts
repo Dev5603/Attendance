@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import connect from "@/db/dbConfig";
-import { compare } from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
 import Admin from "@/models/Admin"
@@ -39,12 +39,12 @@ export async function POST(request: NextRequest) {
             }, { status: 400 })
         }
 
-        const comparePass = await compare(password, user.password)
+        const comparePass = await bcryptjs.compare(password, user.password)
 
         if (!comparePass) {
             return NextResponse.json({
                 message: 'Invalid Credentials'
-            })
+            }, { status: 400 })
         }
 
         const authToken = sign({
