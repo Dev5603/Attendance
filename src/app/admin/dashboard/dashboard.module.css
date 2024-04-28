@@ -1,0 +1,83 @@
+.staffs {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    padding-top: 3.5rem;
+    margin-inline: 1.5rem;
+}
+
+.staff {
+    text-align: center;
+
+    width: 25rem;
+    border: .5px solid var(--clr-border-200);
+    border-radius: .75rem;
+
+    padding-block: 2rem;
+    margin-top: 2rem;
+    margin-inline: .75rem;
+
+    background-color: var(--clr-secondary-200);
+}
+
+.staff h2 {
+    font-family: var(--ff-alata);
+    font-size: 2.5rem;
+}
+
+.staff p {
+    font-family: var(--ff-josefin);
+    font-size: 1.25rem;
+}
+
+.staff button {
+    font-family: var(--ff-alata);
+    font-size: 1.25rem;
+
+    border-radius: .5rem;
+
+    padding: .45rem 2.5rem;
+    margin: 1.5rem .5rem;
+
+    background-color: #881337;
+}
+
+.staff button:hover {
+    opacity: .8;
+}
+
+.exception {
+    display: grid;
+    place-content: center;
+    text-align: center;
+
+    height: 100dvh;
+}
+
+.exception h2 {
+    font-family: var(--ff-alata);
+    font-size: 3.5rem;
+    word-break: normal;
+}
+
+.exception a {
+    font-family: var(--ff-alata);
+    font-size: 1.25rem;
+
+    width: max-content;
+    border-radius: .5rem;
+
+    background-color: var(--clr-primary-200);
+
+    padding: .75rem 3rem;
+    margin: 1rem auto;
+}
+
+@media only screen and (height < 700px) {
+
+    .staffs {
+        padding-top: 4.5rem;
+    }
+
+}

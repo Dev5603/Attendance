@@ -1,0 +1,26 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 100dvh;
+}
+
+.home a {
+    font-family: var(--ff-alata);
+    font-size: 2rem;
+    text-align: center;
+
+    width: 10rem;
+    border-radius: .5rem;
+
+    background-color: var(--clr-primary-200);
+
+    margin-block: 1rem;
+    padding: .5rem 0;
+}
+
+.home a:is(:hover, :focus) {
+    opacity: .9;
+}

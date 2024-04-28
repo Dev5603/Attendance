@@ -1,0 +1,104 @@
+.register_login {
+    position: absolute;
+    right: 2.5rem; top: 4rem;
+
+    font-family: var(--ff-josefin);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    color: var(--clr-text-200);
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 100dvh;
+}
+
+.register div {
+    border: 1px solid var(--clr-border-200);
+    border-radius: .75rem;  
+    
+    width: 35rem;
+
+    padding: 2.5rem 2.5rem;
+    
+    background-color: var(--clr-secondary-200);
+}
+
+.register h1 { 
+    font-family: var(--ff-josefin);
+    font-size: 2rem;
+    text-align: center;
+
+    color: var(--clr-text-200);
+}
+
+.register p {
+    font-family: var(--ff-alata);
+    text-align: center;
+
+    color: var(--clr-text-400);
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+
+    margin-block: 2.5rem;
+}
+
+.register form label {
+    color: var(--clr-text-200);
+}
+
+.register form input {
+    border: 1px solid var(--clr-border-200);
+    border-radius: .5rem;
+
+    margin-block: 1rem;
+    padding: .625rem 1rem;
+
+    background-color: var(--clr-primary-400);
+    color: var(--clr-text-200);
+}
+
+.register button {
+    font-family: var(--ff-alata);
+    font-weight: bold;
+    border-radius: .5rem;
+
+    margin-top: 2rem;
+    padding: .625rem 1rem;
+
+    background-color: var(--clr-primary-200);
+    color: var(--clr-text-200);
+}
+
+.register button:is(:hover, :focus) {
+    opacity: 0.9;
+}
+
+@media only screen and (width < 45em) {
+
+    .register_login {
+        font-size: 1.25rem;
+
+        right: 1.5rem; top: 1.75rem;
+    }
+
+    .register {
+        padding-inline: 1rem;
+    }
+
+    .register div {
+        width: 100%;
+
+        padding: 2rem 1rem;
+    }
+
+}

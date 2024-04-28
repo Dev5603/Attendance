@@ -1,0 +1,62 @@
+.table_container {
+    font-family: var(--ff-alata);
+}
+
+.table_container h2 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+
+    margin-inline: 2.5rem;
+    margin-block: 2rem;
+}
+
+.table_container h3 {
+    font-size: 3rem;
+
+    margin-block: 1.5rem;
+    margin-bottom: 2rem;
+    margin-inline: 4.5rem;
+}
+
+.table_container .late {
+    background-color: #881837;
+}
+
+.table_container .late:is(:hover, :focus) {
+    background-color: #881837;
+}
+  
+.table_container table {
+    width: 80%;
+
+    border: 1px solid var(--clr-primary-200);
+    border-collapse: collapse;
+
+    margin-bottom: 1.25rem;
+    margin-inline: 4.5rem;
+}
+  
+.table_container th, 
+.table_container td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-primary-200);
+}
+  
+.table_container th {
+    font-family: var(--ff-josefin);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.table_container td {
+    padding-block: 1rem;
+}
+
+.table_container thead tr:is(:focus, :hover) {
+    background-color: var(--clr-primary-200);
+}
+  
+.table_container td:is(:focus, :hover) {
+    background-color: var(--clr-primary-200);
+}

@@ -1,0 +1,65 @@
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100dvh;
+}
+
+.dashboard button {
+    font-family: var(--ff-josefin);
+    font-size: 3rem;
+    text-transform: uppercase;
+
+    border: .5px solid var(--clr-border-200);
+    border-radius: 1rem;
+    cursor: pointer;
+
+    transition: scale .75s ease;
+
+    padding: 5rem 3rem;
+
+    background-color: hsl(0 100% 100% / 0.3);
+}
+
+.dashboard button:is(:focus, :hover) {
+    scale: 1.2;
+}
+
+.dashboard button i {
+    font-size: 5rem;
+}
+
+.dashboard button span {
+    font-family: var(--ff-alata);
+}
+
+.dashboard button span {
+    display: block;
+}
+
+.dashboard button:disabled {
+    display: none;
+}
+
+.dashboard .next {
+    font-family: var(--ff-alata);
+    font-size: 2rem;
+    text-align: center;
+
+    border-radius: .5rem;
+
+    padding: 7.5rem 5rem;
+    margin: 1rem;
+}
+
+@media only screen and (width < 45em) {
+
+    .dashboard button {
+        width: 100%;
+
+        padding: 5rem 0;
+        margin: 1rem;
+    }
+
+}

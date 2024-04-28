@@ -1,0 +1,123 @@
+@media only screen and (width > 45em) {
+
+    .sidebar_btn {
+        display: none;
+    }
+
+}
+
+.sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    z-index: 1;
+
+    border-right: 1px solid var(--clr-border-200);
+
+    width: 17.5rem;
+    height: 100%;
+
+    padding-inline: .5rem;
+}
+
+.sidebar header {
+    padding: 1.75rem 1rem 0 1rem;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+}
+
+.sidebar > ul {
+    margin-top: 2.5rem;
+}
+
+.sidebar ul > li {
+    margin-inline: .5rem;
+    margin-block: .75rem;
+}
+
+.sidebar ul > li > a,
+.sidebar ul > li > button {
+    display: block;
+
+    font-family: var(--ff-alata);
+    font-size: 1.125rem;
+
+    height: 100%;
+    width: 100%;
+
+    border-radius: .5rem;
+
+    padding-left: 1rem;
+    padding-block: .625rem;
+}
+
+.sidebar ul > li > a,
+.sidebar ul > li > button {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul > li > a > i,
+.sidebar ul > li > button > i {
+    font-size: 1.5rem;
+
+    padding-inline: .625rem;
+}
+
+.sidebar ul > li > a:is(:hover, :focus),
+.sidebar ul > li > button:is(:hover, :focus),
+.sidebar .active {
+    background-color: var(--clr-primary-200);
+}
+
+.dropdown_menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.75s ease-out;
+
+    padding-left: .75rem;
+}
+
+.dropdown:is(:hover, :focus) .dropdown_menu,
+.dropdown > .active .dropdown_menu {
+    max-height: 200px;
+}
+
+@media only screen and (width < 45em) {
+
+    .sidebar_btn {
+        position: absolute;
+        top: 1.5rem; right: 1.5rem;
+
+        display: block;
+
+        width: 2.5rem; height: 3rem;
+        cursor: pointer;
+        opacity: .9;
+
+        background-image: url('../../../assets/icons/menu.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 700ms ease;
+
+        background-color: var(--clr-secondary-200);
+        border: none;
+    }
+
+    .sidebar_btn[aria-expanded='true'] {
+        background-image: url('../../../assets/icons/close.svg');
+    }
+
+    .sidebar[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+}
