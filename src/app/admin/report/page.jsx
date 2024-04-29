@@ -50,7 +50,7 @@ const Report = () => {
         fetchStaffDetails(entry.staffID)
       }
     })
-  }, [reports])
+  }, [reports, staffDetails])
 
   useEffect(() => {
     const groupData = () => {
