@@ -105,7 +105,7 @@ const Report = () => {
                   entry.attendance.map((attendanceEntry, index) => (
                     <tr key={`${entry._id}_${index}`}>
                       <td>{attendanceEntry.date}</td>
-                      <td><Link href={`/admin/report/${entry.staffID}`}>{staffDetails[entry.staffID]}</Link></td>
+                      <td><Link href={`/admin/report/${entry.staffID}`}>{staffDetails[entry.staffID] || "Unknown"}</Link></td>
                       <td className={splitTimeAndCheck(entry?.attendance[0]?.inTime) ? styles.late : ''}>{attendanceEntry.inTime}</td>
                       <td>{attendanceEntry.outTime}</td>
                     </tr>
