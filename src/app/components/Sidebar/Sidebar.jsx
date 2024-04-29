@@ -42,9 +42,14 @@ const Sidebar = () => {
         </header>
 
         <ul>
-          <li>
-            <Link className={styles.active} href="/admin/dashboard"><i><MdOutlineSpaceDashboard /></i>Dashboard</Link>
-          </li>
+          {
+            userData?.role && (
+
+              <li>
+                <Link className={styles.active} href={`/${userData.role.toLowerCase()}/dashboard`}><i><MdOutlineSpaceDashboard /></i>Dashboard</Link>
+              </li>
+            )
+          }
           {
             userData?.role && userData.role === 'Admin' ? (
               <>
