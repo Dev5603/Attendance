@@ -36,8 +36,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchStaff = async () => {
-      setLoading(true)
-
       try {
         const response = await axios.get(`/api/staff/get`)
         
@@ -46,8 +44,6 @@ const Dashboard = () => {
         }
       } catch (error) {
         toast.error(error.response.data.message)
-      } finally {
-        setLoading(false)
       }
     }
 
